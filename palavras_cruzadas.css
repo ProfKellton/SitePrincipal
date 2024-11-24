@@ -1,0 +1,186 @@
+/* Cabeçalho */
+header {
+  background-color: #1f2937; /* Azul escuro */
+  color: #e0e7ff;
+  padding: 20px 0;
+  text-align: center;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
+}
+
+/* Navegação */
+nav {
+  background-color: #3b506f; /* Azul escuro */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+nav ul li {
+  display: inline-block;
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: #ffffff;
+  padding: 14px 20px;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: bold;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+  background-color: #64748b;
+  color: #e0e7ff;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f4f8; /* Cor de fundo neutra que remete à informática */
+}
+
+.perguntas {
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+}
+  
+.numero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(70, 66, 66, 0.772); /* Mantido como original */
+  color: white;
+}
+  
+.zero {
+  color: white;
+  width: 20px;
+  height: 20px;
+  border: 1px solid white;
+}
+  
+.principal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid blue; /* Mantido como original */
+  margin: auto;
+  padding: 5px;
+}
+  
+.borda {
+  border: 1px solid black; /* Mantido como original */
+  width: 20px;
+  height: 20px;
+}
+  
+.preto {
+  background-color: rgba(112, 106, 106, 0.772); /* Mantido como original */
+}
+  
+td {
+  display: flex;
+  width: 20px;
+  height: 20px;
+  margin: 1px;
+  align-items: center;
+  justify-content: center;
+}
+  
+tr {
+  display: flex;
+}
+  
+.grade {
+  display: grid;
+  justify-content: flex-end;
+  grid-template-columns: repeat(20, 30px);
+  grid-template-rows: repeat(20, 30px);
+  gap: 2px;
+}
+  
+.celula {
+  border: 1px solid #000;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+}
+  
+.encontrada {
+  background-color: #6ed873;
+}
+  
+.nao-encontrada {
+  background-color: #ef5350;
+}
+
+/* BLOCO DAS DICAS */
+  
+.dicasBloco {
+  display: flex;
+  border: 1px solid blue; /* Mantido como original */
+  margin-top: 25px;
+  height: 150px;
+  flex-direction: column;
+  width: 80%;
+  align-items: center;
+  justify-content: center;
+}
+  
+.dicaPalavra {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-size: 25px;
+  font-family: Arial;
+  font-weight: bold;
+  color: blue;
+}
+  
+.ListaDicas {
+  display: flex;
+  flex-direction: column;
+  color: black;
+  font-family: Arial;
+}
+  
+.ListaDicas li {
+  margin-top: 5px;
+}
+
+/* Rodapé */
+footer {
+  background-color: #1f2937; /* Azul escuro */
+  color: #94a3b8; /* Cinza claro */
+  text-align: center;
+  padding: 20px 0;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
+}

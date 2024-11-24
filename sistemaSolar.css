@@ -1,0 +1,255 @@
+/* Area dos planetas */
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+    background-color: black;
+    zoom: 1.0; /* Ajuste o valor conforme necessário */
+
+}
+
+.container {
+    position: relative;
+    width: 100vw;
+    height: 80vh; /* Ajustando para dar espaço para os banners */
+    margin-top: 20px; /* Ajuste para não sobrepor o título */
+}
+
+.sol {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10em;
+    height: 10em;
+    margin-top: -5em;
+    margin-left: -5em;
+    border-radius: 50%;
+    background-color: yellow;
+    box-shadow: 0 0 3em white;
+    z-index: 10;
+}
+
+/* Órbitas: todas estão centralizadas em torno do Sol */
+.orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 0.05em dashed rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transform-origin: center center;
+}
+
+/* Animações de órbita centralizadas no Sol */
+@keyframes orbit-animation {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Mercúrio */
+.orbit-mercurio {
+    width: 15em;
+    height: 15em;
+    margin-top: -7.5em;
+    margin-left: -7.5em;
+    animation: orbit-animation 7.6s linear infinite;
+}
+.mercurio {
+    position: absolute;
+    top: 0;
+    left: 70%;
+    transform: translateX(-50%);
+}
+.mercurio img {
+    width: 1.2em;
+    height: 1.2em;
+    border-radius: 50%;
+}
+
+/* Vênus */
+.orbit-venus {
+    width: 20em;
+    height: 20em;
+    margin-top: -10em;
+    margin-left: -10em;
+    animation: orbit-animation 19s linear infinite;
+}
+.venus {
+    position: absolute;
+    top: 0;
+    left: 70%;
+    transform: translateX(-50%);
+}
+.venus img {
+    width: 1.8em;
+    height: 1.8em;
+    border-radius: 50%;
+}
+
+/* Terra com Lua */
+.orbit-terra {
+    width: 25em;
+    height: 25em;
+    margin-top: -12.5em;
+    margin-left: -12.5em;
+    animation: orbit-animation 36.5s linear infinite;
+}
+.terra {
+    position: absolute;
+    top: 0;
+    left: 70%;
+    transform: translateX(-50%);
+}
+.terra img {
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+}
+
+/* Lua */
+.orbit-lua {
+    position: absolute;
+    width: 4em;
+    height: 4em;
+    top: 50%;
+    left: 50%;
+    margin-top: -2em;
+    margin-left: -2em;
+    animation: orbit-animation 2.7s linear infinite;
+}
+.lua {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.lua img {
+    width: 0.6em;
+    height: 0.6em;
+    border-radius: 50%;
+}
+
+/* Marte */
+.orbit-marte {
+    width: 35em;
+    height: 35em;
+    margin-top: -17.5em;
+    margin-left: -17.5em;
+    animation: orbit-animation 68.7s linear infinite;
+}
+.marte {
+    position: absolute;
+    top: 0;
+    left: 65%;
+    transform: translateX(-50%);
+}
+.marte img {
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+}
+
+/* Júpiter */
+.orbit-jupiter {
+    width: 50em;
+    height: 50em;
+    margin-top: -25em;
+    margin-left: -25em;
+    animation: orbit-animation 433.2s linear infinite;
+}
+.jupiter {
+    position: absolute;
+    top: 0;
+    left: 67%;
+    transform: translateX(-50%);
+}
+.jupiter img {
+    width: 3em;
+    height: 3em;
+    border-radius: 50%;
+}
+
+/* Saturno */
+.orbit-saturno {
+    width: 65em;
+    height: 65em;
+    margin-top: -32.5em;
+    margin-left: -32.5em;
+    animation: orbit-animation 1075s linear infinite;
+}
+.saturno {
+    position: absolute;
+    top: 0;
+    left: 64%;
+    transform: translateX(-50%);
+}
+.saturno img {
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 50%;
+}
+
+/* Urano */
+.orbit-urano {
+    width: 80em;
+    height: 80em;
+    margin-top: -40em;
+    margin-left: -40em;
+    animation: orbit-animation 3066s linear infinite;
+}
+.urano {
+    position: absolute;
+    top: 0;
+    left: 62%;
+    transform: translateX(-50%);
+}
+.urano img {
+    width: 2.2em;
+    height: 2.2em;
+    border-radius: 50%;
+}
+
+/* Netuno */
+.orbit-netuno {
+    width: 95em;
+    height: 95em;
+    margin-top: -47.5em;
+    margin-left: -47.5em;
+    animation: orbit-animation 6014s linear infinite;
+}
+.netuno {
+    position: absolute;
+    top: 0;
+    left: 62%;
+    transform: translateX(-50%);
+}
+.netuno img {
+    width: 2.2em;
+    height: 2.2em;
+    border-radius: 50%;
+}
+
+
+/* Aumentando a flexibilidade para telas menores */
+@media screen and (max-width: 768px) {
+    .sliders div {
+        height: 200px;
+        width: 60px;
+    }
+
+    .sliders div:hover {
+        width: 300px;
+    }
+
+    .container {
+        height: 50vh; /* Ajustando para telas pequenas */
+    }
+    
+    .sol {
+        width: 8em;
+        height: 8em;
+    }
+}

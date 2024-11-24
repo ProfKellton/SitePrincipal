@@ -1,0 +1,147 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4ff; /* Cor de fundo azul claro */
+    color: #1a1a1a; /* Texto escuro */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Garante que a página ocupe toda a altura da janela */
+}
+
+header {
+    background-color: #1f2937; /* Azul marinho */
+    color: #e0e7ff; /* Texto em branco */
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    margin-top: 20px;
+    color: #0056b3; /* Azul escuro para o título */
+}
+
+.icon-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centraliza os ícones */
+    margin: 20px 0; /* Espaço acima e abaixo dos ícones */
+}
+
+.icon {
+    border: 2px solid #0056b3; /* Azul escuro */
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    background-color: #ffffff; /* Cor de fundo dos ícones */
+    cursor: grab;
+    transition: background-color 0.2s;
+    color: #1a1a1a; /* Cor do texto dos ícones */
+    width: 60px; /* Aumenta a largura dos ícones */
+    height: 60px; /* Aumenta a altura dos ícones */
+    font-size: 14px; /* Tamanho da fonte dos ícones */
+    display: flex;
+    justify-content: center; /* Centraliza o conteúdo dentro do ícone */
+    align-items: center; /* Centraliza verticalmente */
+}
+
+.icon:hover {
+    background-color: #0056b3; /* Azul escuro ao passar o mouse */
+    color: white; /* Texto em branco ao passar o mouse */
+}
+
+.selected {
+    border: 2px dashed #007bff;
+    background-color: #f0f8ff;
+}
+
+
+.dropzone-container {
+    display: flex; /* Define o contêiner como flexível */
+    justify-content: center; /* Centraliza as áreas de drop */
+    flex-wrap: wrap; /* Permite que as áreas de drop fiquem em linhas diferentes se não houver espaço */
+    margin: 20px 0; /* Espaço acima e abaixo do contêiner */
+}
+
+.dropzone {
+    border: 2px dashed #0056b3; /* Azul escuro */
+    border-radius: 10px;
+    min-height: 150px; /* Altura mínima das áreas de drop */
+    margin: 10px; /* Espaço entre as áreas de drop */
+    padding: 20px; /* Espaço interno nas áreas de drop */
+    background-color: #e0e7ff; /* Azul muito claro */
+    display: flex; /* Altera para flex para centralizar o conteúdo */
+    flex-direction: column; /* Coloca o conteúdo em coluna */
+    align-items: center; /* Centraliza horizontalmente */
+    justify-content: center; /* Centraliza verticalmente */
+    width: 200px; /* Define uma largura fixa para as áreas de drop */
+}
+
+.button-container {
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #007BFF; /* Azul para todos os botões */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto; /* Centraliza o botão */
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3; /* Azul escuro ao passar o mouse */
+}
+
+/* Rodapé */
+footer {
+    background-color: #1f2937; /* Azul marinho */
+    color: #94a3b8; /* Texto em branco */
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: auto; /* Faz o rodapé ficar no final da página */
+}
+
+/* Navegação */
+nav {
+    background-color: #3b506f; /* Azul escuro */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #ffffff; /* Texto branco */
+    padding: 14px 20px;
+    text-decoration: none;
+    display: inline-block;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #003d80; /* Azul marinho ao passar o mouse */
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .dropzone {
+        width: 100%; /* Áreas de drop ocupam 100% da largura em telas pequenas */
+    }
+}

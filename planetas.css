@@ -1,0 +1,168 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+    background-color: black;
+    zoom: 0.9; /* Ajuste o valor conforme necessário */
+}
+
+/* Area dos menus */
+
+.sliders {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 30px; /* Espaçamento entre o sistema solar e os banners */
+    flex-wrap: wrap;
+}
+
+h1 {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin: 40px;
+}
+
+.sliders div {
+    height: 500px;
+    width: 120px;
+    border: 7px solid white;
+    border-radius: 10px;
+    transition: width 0.5s ease;
+}
+
+.div1 {
+    background-image: url(imagensPlanetas/Mercúrio.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.div2 {
+    background-image: url(imagensPlanetas/Vênus.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.div3 {
+    background-image: url(imagensPlanetas/Terra.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.div4 {
+    background-image: url(imagensPlanetas/lua.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.div5 {
+    background-image: url(imagensPlanetas/marte.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.div6 {
+    background-image: url(imagensPlanetas/jupiter.png);
+    background-position: center;
+    background-size: cover;
+}
+
+
+.div7 {
+    background-image: url(imagensPlanetas/saturno.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.div8 {
+    background-image: url(imagensPlanetas/urano.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.div9 {
+    background-image: url(imagensPlanetas/netuno.png);
+    background-position: center;
+    background-size: cover;
+}
+
+.div10{
+    background-image: url(imagensPlanetas/plutão.png);
+    background-position: center;
+    background-size: cover;
+}
+
+/* Adicionando o efeito de expansão ao passar o mouse */
+.sliders div:hover {
+    width: 400px; /* Aumenta a largura da div ao passar o mouse */
+}
+
+
+
+/* Definindo o conteúdo informativo do planeta */
+.info-text {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    width: 80%;
+    margin-top: 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.2em;
+}
+
+
+/* Main container to hold solar system and banners side by side */
+.main-container {
+    display: flex;
+    flex-direction: row; /* Ensures that the solar system and banners are side by side */
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+}
+
+/* Sistema Solar */
+.solar-system {
+    position: relative;
+    width: 60vw; /* A largura do sistema solar */
+    height: 80vh; /* Ajustando para dar espaço para os banners */
+    margin-top: 20px; /* Ajuste para não sobrepor o título */
+}
+
+/* Banners (Sliders) e Mensagens */
+.side-info {
+    width: 30vw; /* Largura para os banners e textos */
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s ease;
+  }
+
+/* Rodapé */
+footer {
+    background-color: #1f2937; /* Azul escuro */
+    color: #94a3b8; /* Cinza claro */
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
+  }

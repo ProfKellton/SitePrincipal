@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jogo da Forca - Tema Informática</title>
+    <style>
+        /* CSS */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+
+        .game-container {
+            text-align: center;
+            max-width: 400px;
+            padding: 20px;
+            border: 2px solid #333;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        #wordDisplay {
+            font-size: 24px;
+            letter-spacing: 8px;
+            margin: 20px 0;
+        }
+
+        #hint {
+            font-style: italic;
+            color: #888;
+        }
+
+        .input-container {
+            margin: 10px 0;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 18px;
+            width: 50px;
+            text-align: center;
+        }
+
+        #attempts {
+            margin: 10px 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        #message {
+            font-size: 18px;
+            margin-top: 15px;
+            color: #d9534f;
+        }
+
+        #hangmanImage {
+            width: 200px;
+            height: 200px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="game-container">
+        <h1>Jogo da Forca - Informática</h1>
+        <div id="hint">Dica: </div>
+        <div id="wordDisplay">_ _ _ _ _</div>
+
+        <div class="input-container">
+            <input type="text" id="letterInput" maxlength="1" placeholder="Letra">
+            <button onclick="checkLetter()">Tentar</button>
+        </div>
+
+        <button onclick="resetGame()">Trocar Palavra</button>
+
+        <div id="attempts">Tentativas restantes: 6</div>
+        <div id="message"></div>
+
+        <!-- Imagem da Forca -->
+        <img id="hangmanImage" src="imagensG/imagensForca/forca0.png" alt="Forca">
+    </div>
+
+    <script>
+        // JavaScript
+        const words = [
+            { word: "computador", hint: "Máquina essencial para programadores" },
+            { word: "algoritmo", hint: "Conjunto de passos para resolver um problema" },
+            { word: "byte", hint: "Unidade básica de dados" },
+            { word: "internet", hint: "Rede mundial de computadores" },
+            { word: "software", hint: "Programa utilizado para realizar tarefas" },
+            { word: "hardware", hint: "Parte física de um computador" },
+            { word: "firewall", hint: "Proteção contra ameaças de rede" },
+            { word: "memoria", hint: "Armazena informações temporárias ou permanentes" },
+            { word: "servidor", hint: "Computador que fornece dados para outros dispositivos" },
+            { word: "processador", hint: "Cérebro do computador, realiza cálculos e processamentos" },
+            { word: "virus", hint: "Programa que pode danificar sistemas e arquivos" },
+            { word: "ciberguerra", hint: "Conflito que ocorre no mundo digital" },
+            { word: "dados", hint: "Informações que podem ser processadas" },
+            { word: "inteligencia", hint: "Capacidade artificial de realizar tarefas cognitivas" },
+            { word: "rede", hint: "Conexão entre dois ou mais computadores" },
+            { word: "criptografia", hint: "Técnica de proteger dados em trânsito" }
+        ];
+
+        let currentWord = "";
+        let currentHint = "";
+        let attempts = 6;
+        let guessedLetters = [];
+
+        // Inicia o jogo com uma nova palavra
+        function startGame() {
+            const randomWord = words[Math.floor(Math.random() * words.length)];
+            currentWord = randomWord.word;
+            currentHint = randomWord.hint;
+            attempts = 6;
+            guessedLetters = [];
+
+            document.getElementById("hint").textContent = `Dica: ${currentHint}`;
+            updateWordDisplay();
+            document.getElementById("attempts").textContent = `Tentativas restantes: ${attempts}`;
+            document.getElementById("message").textContent = "";
+            document.getElementById("hangmanImage").src = `imagensG/imagensForca/forca${attempts}.png`;  // Usando a pasta imagens
+        }
+
+        // Atualiza o display da palavra com as letras adivinhadas
+        function updateWordDisplay() {
+            const display = currentWord.split("").map(letter => guessedLetters.includes(letter) ? letter : "_").join(" ");
+            document.getElementById("wordDisplay").textContent = display;
+        }
+
+        // Verifica se a letra está na palavra
+        function checkLetter() {
+            const input = document.getElementById("letterInput");
+            const letter = input.value.toLowerCase();
+
+            if (letter && !guessedLetters.includes(letter)) {
+                guessedLetters.push(letter);
+                if (currentWord.includes(letter)) {
+                    updateWordDisplay();
+                    checkWin();
+                } else {
+                    attempts--;
+                    document.getElementById("attempts").textContent = `Tentativas restantes: ${attempts}`;
+                    updateHangmanImage();  // Atualiza a imagem a cada erro
+                    checkLose();
+                }
+            }
+            input.value = "";
+        }
+
+        // Atualiza a imagem da forca com base nas tentativas restantes
+        function updateHangmanImage() {
+            document.getElementById("hangmanImage").src = `imagensG/imagensForca/forca${attempts}.png`;  // Carregar imagem da pasta
+        }
+
+        // Verifica se o jogador ganhou
+        function checkWin() {
+            const display = currentWord.split("").every(letter => guessedLetters.includes(letter));
+            if (display) {
+                document.getElementById("message").textContent = "Parabéns! Você acertou a palavra!";
+            }
+        }
+
+        // Verifica se o jogador perdeu
+        function checkLose() {
+            if (attempts <= 0) {
+                document.getElementById("message").textContent = `Você perdeu! A palavra era "${currentWord}".`;
+                document.getElementById("wordDisplay").textContent = currentWord.split("").join(" ");
+            }
+        }
+
+        // Reinicia o jogo com uma nova palavra
+        function resetGame() {
+            startGame();
+        }
+
+        // Inicializa o jogo na primeira vez
+        startGame();
+    </script>
+</body>
+</html>

@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="palavras_cruzadas.css">
+    <script src="palavras_cruzadas.js"></script>
+    <title>Palavras Cruzadas</title>
+</head>
+
+<body>
+    <!-- Menu de Navegação -->
+    <header>
+        <h1>Cursos do professor Kellton Rodrigo</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#sobre">Sobre</a></li>
+            <li><a href="index.html#cursos">Cursos</a></li>
+            <li><a href="index.html#contato">Contato</a></li>
+            <li><a href="index.html#jogos">Jogos</a></li>
+        </ul>
+    </nav>
+
+    <div class="principal">
+        <table>
+            <tr>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="numero borda">1</td>
+                <td class="zero"></td>
+            </tr>
+            <tr>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="borda" id="letra0"></td>
+                <td class="zero"></td>
+            </tr>
+            <tr>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="numero borda">8</td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="borda" id="letra1"></td>
+                <td class="zero"></td>
+            </tr>
+            <tr>
+                <td class="zero"></td>
+                <td class="numero borda">3</td>
+                <td class="zero"></td>
+                <td class="numero borda">4</td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="numero borda">7</td>
+                <td class="zero"></td>
+                <td class="borda" id="letra2"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="borda" id="letra3"></td>
+                <td class="zero"></td>
+            </tr>
+            <tr>
+                <td class="numero borda">2</td>
+                <td class="borda" id="letra4"></td>
+                <td class="borda" id="letra5"></td>
+                <td class="borda" id="letra6"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="borda" id="letra7"></td>
+                <td class="zero"></td>
+                <td class="borda" id="letra8"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="numero borda">10</td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="numero borda">15</td>
+                <td class="borda" id="letra9"></td>
+                <td class="borda" id="letra10"></td>
+            </tr>
+            <tr>
+                <td class="zero"></td>
+                <td class="borda" id="letra11"></td>
+                <td class="zero"></td>
+                <td class="borda" id="letra12"></td>
+                <td class="numero borda">5</td>
+                <td class="zero"></td>
+                <td class="borda" id="letra13"></td>
+                <td class="zero"></td>
+                <td class="borda" id="letra14"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="borda" id="letra15"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="borda" id="letra16"></td>
+                <td class="zero"></td>
+            </tr>
+            <tr>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="numero borda">6</td>
+                <td class="borda" id="letra17"></td>
+                <td class="borda" id="letra18"></td>
+                <td class="borda" id="letra19"></td>
+                <td class="borda" id="letra20"></td>
+                <td class="borda" id="letra21"></td>
+                <td class="borda" id="letra22"></td>
+                <td class="borda" id="letra23"></td>
+                <td class="borda preto"></td>
+                <td class="borda" id="letra24"></td>
+                <td class="borda" id="letra25"></td>
+                <td class="borda" id="letra26"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="borda" id="letra27"></td>
+                <td class="zero"></td>
+
+            </tr>
+            <tr>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="borda" id="letra28"></td>
+                <td class="zero"></td>
+                <td class="borda" id="letra29"></td>
+                <td class="zero"></td>
+                <td class="borda" id="letra30"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="borda" id="letra31"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="borda" id="letra32"></td>
+                <td class="zero"></td>
+            </tr>
+            <tr>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="borda" id="letra33"></td>
+                <td class="zero"></td>
+                <td class="borda" id="letra34"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="borda" id="letra35"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="borda" id="letra36"></td>
+                <td class="zero"></td>
+            </tr>
+            <tr>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="borda" id="letra37"></td>
+                <td class="numero borda">9</td>
+                <td class="borda" id="letra38"></td>
+                <td class="borda" id="letra39"></td>
+                <td class="borda" id="letra40"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="borda preto"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="borda" id="letra41"></td>
+                <td class="zero"></td>
+            </tr>
+            <tr>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="borda preto"></td>
+                <td class="zero"></td>
+                <td class="borda" id="letra42"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="numero borda">11</td>
+                <td class="borda" id="letra43"></td>
+                <td class="borda" id="letra44"></td>
+                <td class="borda" id="letra45"></td>
+                <td class="borda" id="letra46"></td>
+                <td class="borda" id="letra47"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="numero borda">16</td>
+                <td class="borda" id="letra48"></td>
+                <td class="borda" id="letra49"></td>
+                <td class="borda" id="letra50"></td>
+            </tr>
+            <tr>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="borda" id="letra51"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="borda" id="letra52"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="numero borda">17</td>
+                <td class="zero"></td>
+                <td class="borda" id="letra53"></td>
+                <td class="zero"></td>
+            </tr>
+            <tr>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="borda" id="letra54"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="borda" id="letra55"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="numero borda">13</td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="numero borda">14</td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="borda" id="letra56"></td>
+                <td class="zero"></td>
+                <td class="borda" id="letra57"></td>
+                <td class="zero"></td>
+            </tr>
+            <tr>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="borda" id="letra58"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="numero borda">12</td>
+                <td class="borda" id="letra59"></td>
+                <td class="borda" id="letra60"></td>
+                <td class="borda" id="letra61"></td>
+                <td class="borda" id="letra62"></td>
+                <td class="borda" id="letra63"></td>
+                <td class="borda" id="letra64"></td>
+                <td class="borda" id="letra65"></td>
+                <td class="borda preto"></td>
+                <td class="borda" id="letra66"></td>
+                <td class="borda" id="letra67"></td>
+                <td class="borda preto"></td>
+                <td class="borda" id="letra68"></td>
+                <td class="borda" id="letra69"></td>
+                <td class="borda" id="letra70"></td>
+                <td class="borda" id="letra71"></td>
+                <td class="borda" id="letra72"></td>
+            </tr>
+            <tr>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="borda" id="letra73"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="borda" id="letra74"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="borda" id="letra75"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+            </tr>
+            <tr>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="borda" id="letra76"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+            </tr>
+            <tr>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="borda" id="letra77"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+            </tr>
+            <tr>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="borda preto"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+            </tr>
+            <tr>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="borda" id="letra78"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+            </tr>
+            <tr>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="borda" id="letra79"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+            </tr>
+            <tr>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="numero borda">18</td>
+                <td class="borda" id="letra80"></td>
+                <td class="borda" id="letra81"></td>
+                <td class="borda" id="letra82"></td>
+                <td class="borda" id="letra83"></td>
+                <td class="borda" id="letra84"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+            </tr>
+            <tr>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="borda" id="letra85"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+                <td class="zero"></td>
+            </tr>
+        </table>
+
+    </div>
+    <div class="perguntas">
+        <input type="text" id="input_palavra">
+        <button onclick="verificar_palavra()">Verificar</button>
+    </div>
+
+    <div class="dicasBloco">
+        <div class="dicaPalavra">Dicas</div>
+    
+        <ul class="ListaDicas" id="lista_dicas">
+            <li>01 - Memória dentro da própria CPU que armazena N bits.</li>
+            <!-- <li>02 - Também conhecida por processador, peça é como o "cérebro do computador".</li>
+            <li>03 - Permite que um dispositivo de entrada e saída envie ou receba dados diretamente da memória principal, ignorando a CPU</li>
+            <li>04 - É um circuito combinatório responsável pela execução de somas, subtrações e funções lógicas, em um sistema digital.</li>
+            <li>05 - É um sistema dentro de um computador ou dispositivo, consistindo em um conector ou conjunto de fios, que fornece transporte de dados.</li>
+            <li>06 - É um barramento de endereço</li>
+            <li>07 - Forma como um processo/tarefa de um programa de computador é divido</li>
+            <li>08 - Tecnologia de armazenamento de dados que usa uma memória não volátil.</li>
+            <li>09 - Permite a CPU a acessar memoria externar e/ou periféricos externos</li>
+            <li>10 - Processador que contém 4 núcleos é um processador:</li>
+            <li>11 - Intermediário entre um operador de um processo e o dispositivo de armazenamento ao qual esse operador acede.</li>
+            <li>12 - Memoria que não é acessada pelo processador mas sim por intermédio da memória ram, cache, etc.</li>
+            <li>13 - Processador que garante alto desempenho</li>
+            <li>14 - Processador que contém 2 núcleos é um processador:</li>
+            <li>15 - Processador com um ótimo custo-beneficio e um amplo uso.</li>
+            <li>16 - A memória somente de leitura.</li>
+            <li>17 - Memória volátil de leitura e escrita, e de acesso rapido.</li>
+            <li>18 - Pode ser apagada apenas por exposição a uma forte luz ultravioleta.</li> -->
+        </ul>
+        <div>
+            <button id="btn_proxima" onclick="proxima(2)">Próxima Dica</button>
+        </div>
+    
+</div>
+        
+        <div class="button-container">
+             <button onclick="window.location.href='index.html'">Voltar para a Página Inicial</button>
+        </div>
+
+
+        <footer>
+            <p>&copy; 2024 Cursos do Professor Kellton Rodrigo. Todos os direitos reservados.</p>
+        </footer> 
+</body>
+</html>

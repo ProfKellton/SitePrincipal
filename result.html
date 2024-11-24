@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados da Classificação</title>
+    <link rel="stylesheet" href="ligarStyles.css">
+</head>
+<body>
+
+    <!-- Menu de Navegação -->
+    <header>
+        <h1>Cursos do professor Kellton Rodrigo</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#sobre">Sobre</a></li>
+            <li><a href="index.html#cursos">Cursos</a></li>
+            <li><a href="index.html#contato">Contato</a></li>
+            <li><a href="index.html#jogos">Jogos</a></li>
+        </ul>
+    </nav>
+
+    <h1>Resultados da Classificação</h1>
+    <div id="ligarResult-container"></div>
+    <button id="restart-button">Reiniciar</button>
+    <br>
+    <div class="button-container">
+        <button onclick="window.location.href='index.html'">Voltar para a Página Inicial</button>
+    </div>
+    <br>
+
+    <footer>
+        <p>&copy; 2024 Cursos do Professor Kellton Rodrigo. Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        const storedData = JSON.parse(localStorage.getItem('results'));
+        const results = storedData.results;
+        const resultContainer = document.getElementById('ligarResult-container'); // Corrigido aqui
+        
+        // Exibe a lista de cartões e onde foram colocados
+        const categories = ['entrada', 'processamento', 'saida'];
+        
+        categories.forEach(category => {
+            const categoryDiv = document.createElement('div');
+            categoryDiv.innerHTML = `<h2>${category.charAt(0).toUpperCase() + category.slice(1)}</h2>`;
+            
+            const iconResults = document.createElement('ul');
+
+            // Verifica se existem ícones na categoria
+            if (results[category].length === 0) {
+                const emptyMessage = document.createElement('li');
+                emptyMessage.textContent = `Nenhum ícone colocado na área ${category}.`;
+                iconResults.appendChild(emptyMessage);
+            } else {
+                results[category].forEach(iconId => {
+                    let iconText = '';
+                    switch (iconId) {
+                        case 'icon1':
+                            iconText = '🖱️ Mouse';
+                            break;
+                        case 'icon2':
+                            iconText = '🎤 Microfone';
+                            break;
+                        case 'icon3':
+                            iconText = '⌨️ Teclado';
+                            break;
+                        case 'icon4':
+                            iconText = '💳 Memoria Ram';
+                            break;
+                        case 'icon5':
+                            iconText = '💾 Disquete';
+                            break;
+                        case 'icon6':
+                            iconText = '🧮 Processador';
+                            break;
+                        case 'icon7':
+                            iconText = '🖨️ Impressora';
+                            break;
+                        case 'icon8':
+                            iconText = '📺 Monitor';
+                            break;
+                        case 'icon9':
+                            iconText = '🔊 Alto-falante';
+                            break;
+                    }
+                    const listItem = document.createElement('li');
+                    listItem.textContent = `${iconText} foi colocado na área ${category}`;
+                    iconResults.appendChild(listItem);
+                });
+            }
+            
+            categoryDiv.appendChild(iconResults);
+            resultContainer.appendChild(categoryDiv);
+        });
+
+        // Lida com o clique no botão de reiniciar
+        document.getElementById('restart-button').addEventListener('click', () => {
+            localStorage.removeItem('results'); // Limpa os resultados
+            window.location.href = 'ligar.html'; // Redireciona para a página inicial
+        });
+    </script>
+</body>
+</html>

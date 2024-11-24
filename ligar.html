@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classificação de Ícones</title>
+    <link rel="stylesheet" href="ligarStyles.css">
+</head>
+<body>
+    <header>
+        <h1>Cursos do professor Kellton Rodrigo</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#sobre">Sobre</a></li>
+            <li><a href="index.html#cursos">Cursos</a></li>
+            <li><a href="index.html#contato">Contato</a></li>
+            <li><a href="index.html#jogos">Jogos</a></li>
+        </ul>
+    </nav>
+
+    <h1>Classifique os Ícones de Informática</h1>
+    <div id="message"></div>
+    <div class="icon-container">
+        <div class="icon" id="icon1" data-category="entrada" draggable="true">🖱️ Mouse</div>
+        <div class="icon" id="icon2" data-category="entrada" draggable="true">🎤 Microfone</div>
+        <div class="icon" id="icon3" data-category="entrada" draggable="true">⌨️ Teclado</div>
+        <div class="icon" id="icon4" data-category="processamento" draggable="true">💳 Memoria Ram</div>
+        <div class="icon" id="icon5" data-category="processamento" draggable="true">💾 Disquete</div>
+        <div class="icon" id="icon6" data-category="processamento" draggable="true">🧮 Processador</div>
+        <div class="icon" id="icon7" data-category="saida" draggable="true">🖨️ Impressora</div>
+        <div class="icon" id="icon8" data-category="saida" draggable="true">📺 Monitor</div>
+        <div class="icon" id="icon9" data-category="saida" draggable="true">🔊 Alto-falante</div>
+    </div>
+    
+    <div class="dropzone-container">
+        <div class="dropzone" data-category="entrada"><h2>Entrada</h2></div>
+        <div class="dropzone" data-category="processamento"><h2>Processamento</h2></div>
+        <div class="dropzone" data-category="saida"><h2>Saída</h2></div>
+    </div>
+    
+
+    <div class="button-container">
+        <button id="submit-button">Concluir</button>
+    </div>
+    <div class="button-container">
+        <button onclick="window.location.href='index.html'">Voltar para a Página Inicial</button>
+    </div>
+    <br>
+
+    <footer>
+        <p>&copy; 2024 Cursos do Professor Kellton Rodrigo. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="ligarScript.js"></script>
+</body>
+</html>
