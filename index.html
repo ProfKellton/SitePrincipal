@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cursos do Professor Kellton Rodrigo</title>
     <link rel="stylesheet" href="styles.css">
-    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <style>
         /* Botões */
 .btn {
@@ -273,7 +271,7 @@
     <a href="https://profkellton.github.io/Slider/index.html" target="_blank" class="btn">Exemplo de Slider</a>
     <a href="https://profkellton.github.io/Menu/index.html" target="_blank" class="btn">Exemplo de Menu</a>
     <a href="https://profkellton.github.io/ClimaCode/index.html" target="_blank" class="btn">Controle do Clima</a>
-    <a href="https://profkellton.github.io/Store/" target="_blank" class="btn">Loja</a>
+    <a href="https://profkellton.github.io/Loja/index.html" target="_blank" class="btn">Exemplo de Loja</a>
 </section>
 
         <section id="contato">
@@ -283,22 +281,6 @@
             <p>Página do Github: https://github.com/ProfKellton</p>
         </section>
     </div>
-
-
-    <ul class="menu">
-        <div class="toggleBtn">
-            <ion-icon name="add-outline"></ion-icon>
-        </div>
-        <li style="--i:0; --x:-150px; --y:0px; --clr: rgb(183, 255, 0);"><a href="#"><ion-icon name="person-outline"></ion-icon></a></li>
-        <li style="--i:1; --x:150px; --y:0px; --clr: rgb(255, 174, 0); "><a href="#"><ion-icon name="code-slash-outline"></ion-icon></a></li>
-        <li style="--i:2; --x:0px; --y:-150px;  --clr: rgb(43, 255, 0);  "><a href="#"><ion-icon name="flower-outline"></ion-icon></a></li>
-        <li style="--i:3; --x:105px; --y:105px; --clr: rgb(255, 0, 43); "><a href="#"><ion-icon name="image-outline"></ion-icon></a></li>
-        <li style="--i:4; --x:-105px; --y:-105px; --clr: rgb(0, 255, 187);"><a href="#"><ion-icon name="navigate-outline"></ion-icon></a></li>
-        <li style="--i:5; --x:0px; --y:150px; --clr: rgb(0, 153, 255);"><a href="#"><ion-icon name="mail-unread-outline"></ion-icon></a></li>
-        <li style="--i:6; --x:105px; --y:-105px; --clr: rgb(185, 100, 255);"><a href="#"><ion-icon name="laptop-outline"></ion-icon></a></li>
-        <li style="--i:7; --x:-105px; --y:105px; --clr: rgb(255, 0, 200);" ><a href="#"><ion-icon name="notifications-outline"></ion-icon></a></li>
-    </ul>
-    
     
     <footer>
         <p>&copy; 2024 Cursos do Professor Kellton Rodrigo. Todos os direitos reservados.</p>
@@ -369,17 +351,6 @@ nextButton.addEventListener('click', () => {
     const maxScroll = carouselWrapper.scrollWidth - carouselWrapper.clientWidth;
     carouselWrapper.scrollLeft = Math.min(scrollLeft + 200, maxScroll); // ajuste o valor para o tamanho do item
 });
-
-
-        /* Menu Animado */
-
-        let toggleBtn = document.querySelector('.toggleBtn');
-        let menu = document.querySelector('.menu');
-        toggleBtn.addEventListener('click', () => {
-            menu.classList.toggle('active');
-        });
-
-
 
     </script>
 </body>
