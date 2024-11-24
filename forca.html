@@ -82,6 +82,17 @@
             height: 200px;
             margin-top: 20px;
         }
+
+        /* Rodapé */
+    footer {
+    background-color: #1f2937;
+    color: #94a3b8;
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    }
+        
     </style>
 </head>
 <body>
@@ -96,14 +107,22 @@
             <button onclick="checkLetter()">Tentar</button>
         </div>
 
-        <button onclick="resetGame()">Trocar Palavra</button>
-
         <div id="attempts">Tentativas restantes: 6</div>
         <div id="message"></div>
 
         <!-- Imagem da Forca -->
-        <img id="hangmanImage" src="imagensG/imagensForca/forca0.png" alt="Forca">
+        <img id="hangmanImage" src="imagensG/imagensForca/forca0.PNG" alt="Forca">
     </div>
+
+    <!-- Botão Voltar para a Página Inicial -->
+        <div class="button-container">
+            <button onclick="window.location.href='index.html'">Voltar para a Página Inicial</button>
+        </div>
+
+    <!--Rodapé-->
+        <footer>
+            <p>&copy; 2024 Cursos do Professor Kellton Rodrigo. Todos os direitos reservados.</p>
+        </footer>
 
     <script>
         // JavaScript
@@ -143,7 +162,7 @@
             updateWordDisplay();
             document.getElementById("attempts").textContent = `Tentativas restantes: ${attempts}`;
             document.getElementById("message").textContent = "";
-            document.getElementById("hangmanImage").src = `imagensG/imagensForca/forca${attempts}.png`;  // Usando a pasta imagens
+            document.getElementById("hangmanImage").src = `imagensG/imagensForca/forca${attempts}.PNG`;  // Usando a pasta imagens
         }
 
         // Atualiza o display da palavra com as letras adivinhadas
@@ -174,7 +193,7 @@
 
         // Atualiza a imagem da forca com base nas tentativas restantes
         function updateHangmanImage() {
-            document.getElementById("hangmanImage").src = `imagensG/imagensForca/forca${attempts}.png`;  // Carregar imagem da pasta
+            document.getElementById("hangmanImage").src = `imagensG/imagensForca/forca${attempts}.PNG`;  // Carregar imagem da pasta
         }
 
         // Verifica se o jogador ganhou
@@ -182,6 +201,7 @@
             const display = currentWord.split("").every(letter => guessedLetters.includes(letter));
             if (display) {
                 document.getElementById("message").textContent = "Parabéns! Você acertou a palavra!";
+                setTimeout(startGame, 2000); // Troca automaticamente de palavra após 2 segundos
             }
         }
 
@@ -189,13 +209,8 @@
         function checkLose() {
             if (attempts <= 0) {
                 document.getElementById("message").textContent = `Você perdeu! A palavra era "${currentWord}".`;
-                document.getElementById("wordDisplay").textContent = currentWord.split("").join(" ");
+                setTimeout(startGame, 2000); // Troca automaticamente de palavra após 2 segundos
             }
-        }
-
-        // Reinicia o jogo com uma nova palavra
-        function resetGame() {
-            startGame();
         }
 
         // Inicializa o jogo na primeira vez
