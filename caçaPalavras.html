@@ -270,10 +270,13 @@
     }
 
     botaoConcluir.addEventListener("click", () => {
-        temaAtual = (temaAtual + 1) % temas.length;
-        carregarTema();
-    });
-
+    temaAtual = (temaAtual + 1) % temas.length;
+    carregarTema();
+    
+    // Ocultar a mensagem de "Parabéns!" e o botão de concluir
+    messageElement.style.display = "none";
+    botaoConcluir.style.display = "none";
+});
     carregarTema();
 </script>
 </body>
