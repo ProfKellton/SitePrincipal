@@ -271,5 +271,14 @@ function proxima(i){
         btn_proxima.setAttribute('onclick', `proxima(${proxima})`);
         
     }
+
+
+    document.getElementById("letterInput").addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            checkLetter();
+        }
+    });
+    
+
     
 }

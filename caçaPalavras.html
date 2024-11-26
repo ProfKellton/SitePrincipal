@@ -5,106 +5,92 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jogo de Palavras Cruzadas</title>
     <style>
-            /* Cabeçalho */
-header {
-    background-color: #1f2937; /* Azul escuro */
-    color: #e0e7ff; /* Texto claro */
-    padding: 20px 0;
-    text-align: center;
-    position: fixed;
-            top: 0;
-            left: 0;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
-    width: 100%;
-}
 
+        /* Estilos principais */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #353c49; /* Fundo padrão */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        flex-direction: column;
+    }
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        width: 100%;
+    }
+    .tabuleiro {
+        display: grid;
+        grid-template-columns: repeat(15, 35px); /* Ajustado para caixas menores */
+        grid-template-rows: repeat(15, 35px); /* Ajustado para caixas menores */
+        gap: 2px; /* Reduzi o espaçamento */
+        user-select: none;
+    }
+    .quadrado {
+        width: 20px; /* Reduzido, mantendo espaço para o texto */
+        height: 20px; /* Reduzido */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid transparent; /* Borda transparente */
+        font-size: 20px; /* Mantém o tamanho das letras */
+        font-weight: bold;
+        color: #fff; /* Cor das letras */
+        background-color: transparent; /* Fundo transparente */
+        text-transform: uppercase; /* Letras em maiúsculas */
+        cursor: pointer;
+    }
+    .quadrado.correct {
+        background-color: lightgreen;
+    }
+    .quadrado.selected {
+        background-color: lightblue;
+    }
+    .palavras {
+        margin-left: 100px; /* Aumentado para afastar mais */
+        font-size: 18px;
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        border: 2px solid #ccc;
+        background-color: #fff;
+        border-radius: 10px;
+        align-self: center; /* Alinha verticalmente ao centro */
+    }
+    .palavra.correct {
+        text-decoration: line-through;
+        color: green;
+    }
+    .message-container {
+        text-align: center;
+        margin-top: 20px;
+    }
+    .message {
+        font-size: 20px;
+        font-weight: bold;
+        color: green;
+        display: none;
+    }
+    .botao-concluir {
+        margin-top: 20px;
+        padding: 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        display: none;
+    }
+    .botao-concluir:hover {
+        background-color: #45a049;
+    }
 
-
-
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #1a1f36; /* Fundo padrão */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            flex-direction: column;
-        }
-        .container {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            width: 100%;
-        }
-        .tabuleiro {
-            display: grid;
-            grid-template-columns: repeat(15, 40px);
-            grid-template-rows: repeat(15, 40px);
-            gap: 5px;
-            user-select: none;
-        }
-        .quadrado {
-            width: 40px;
-            height: 40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #e0e0e0;
-            border: 1px solid #ccc;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        .quadrado.selected {
-            background-color: lightblue;
-        }
-        .quadrado.correct {
-            background-color: lightgreen;
-        }
-        .palavras {
-            margin-left: 40px;
-            font-size: 18px;
-            display: flex;
-            flex-direction: column;
-            padding: 10px;
-            border: 2px solid #ccc;
-            background-color: #fff;
-            border-radius: 10px;
-        }
-        .palavra {
-            margin-bottom: 10px;
-        }
-        .palavra.correct {
-            text-decoration: line-through;
-            color: green;
-        }
-        .message-container {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .message {
-            font-size: 20px;
-            font-weight: bold;
-            color: green;
-            display: none;
-        }
-        .botao-concluir {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 16px;
-            display: none;
-        }
-        .botao-concluir:hover {
-            background-color: #45a049;
-        }
-
-
-            /* Rodapé */
-        footer {
+    /* Rodapé */
+    footer {
             background-color: #1f2937; /* Azul escuro */
             color: #94a3b8; /* Cinza claro */
             text-align: center;
@@ -113,30 +99,21 @@ header {
             bottom: 0;
             width: 100%;
             box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
-}
-
+    }
 
     </style>
 </head>
 <body>
-        <!-- Menu de Navegação -->
-        <header>
-            <h1>Cursos do professor Kellton Rodrigo</h1>
-        </header>
 
-
-        <br><br><br>
+<br><br><br>
 <div class="container">
-    <div class="palavras" id="palavras">
-        <!-- Palavras serão carregadas dinamicamente -->
-    </div>
+    <div class="palavras" id="palavras"></div>
     <div class="tabuleiro" id="tabuleiro"></div>
 </div>
 
 <div class="message" id="message">Parabéns! Você encontrou todas as palavras!</div>
 <button class="botao-concluir" id="botaoConcluir">Próximo Tema</button>
-        <br><br><br>
-
+<br><br><br>
 
 <footer>
     <p>&copy; 2024 Cursos do Professor Kellton Rodrigo. Todos os direitos reservados.</p>
@@ -168,10 +145,13 @@ header {
     ];
 
     let temaAtual = 0;
-    const numLinhas = 15;
-    const numColunas = 15;
     let palavrasEncontradas = 0;
     let tabuleiro = [];
+    let selecionando = false;
+    let selecionados = [];
+    let timeoutId;
+
+    const numLinhas = 15, numColunas = 15;
     const tabuleiroElement = document.getElementById("tabuleiro");
     const palavrasElement = document.getElementById("palavras");
     const messageElement = document.getElementById("message");
@@ -179,13 +159,11 @@ header {
 
     function carregarTema() {
         const tema = temas[temaAtual];
-        palavrasElement.innerHTML = `<h3>${tema.nome}</h3>` + 
+        palavrasElement.innerHTML = `<h3>${tema.nome}</h3>` +
             tema.palavras.map(p => `<div class="palavra" data-palavra="${p}">${p}</div>`).join("");
         palavrasEncontradas = 0;
         tabuleiroElement.innerHTML = "";
         tabuleiro = Array.from({ length: numLinhas }, () => Array(numColunas).fill(""));
-        messageElement.style.display = "none";
-        botaoConcluir.style.display = "none";
         preencherTabuleiro(tema.palavras);
     }
 
@@ -209,7 +187,9 @@ header {
                 quadrado.classList.add("quadrado");
                 quadrado.dataset.linha = i;
                 quadrado.dataset.coluna = j;
-                quadrado.addEventListener("click", selecionarQuadrado);
+                quadrado.addEventListener("mousedown", iniciarSelecao);
+                quadrado.addEventListener("mousemove", selecionar);
+                quadrado.addEventListener("mouseup", finalizarSelecao);
                 tabuleiroElement.appendChild(quadrado);
             }
         }
@@ -243,37 +223,50 @@ header {
         }
     }
 
-    function selecionarQuadrado(event) {
-        const quadrado = event.target;
-        quadrado.classList.toggle("selected");
+    function iniciarSelecao(event) {
+        selecionando = true;
+        selecionados = [];
+        clearTimeout(timeoutId);
+        event.target.classList.add("selected");
+        selecionados.push(event.target);
+    }
+
+    function selecionar(event) {
+        if (selecionando) {
+            const quadrado = event.target;
+            if (!selecionados.includes(quadrado)) {
+                quadrado.classList.add("selected");
+                selecionados.push(quadrado);
+            }
+        }
+    }
+
+    function finalizarSelecao() {
+        selecionando = false;
         verificarPalavras();
+        timeoutId = setTimeout(removerSelecoesIncorretas, 8000);
     }
 
     function verificarPalavras() {
+        const palavraSelecionada = selecionados.map(q => q.textContent).join("");
         const tema = temas[temaAtual];
-        tema.palavras.forEach(palavra => {
-            const encontrado = [...tabuleiroElement.querySelectorAll(".selected")]
-                .map(q => q.textContent)
-                .join("")
-                .includes(palavra);
+        if (tema.palavras.includes(palavraSelecionada)) {
+            selecionados.forEach(q => q.classList.add("correct"));
+            const palavraElement = palavrasElement.querySelector(`[data-palavra="${palavraSelecionada}"]`);
+            if (palavraElement) palavraElement.classList.add("correct");
+            palavrasEncontradas++;
+        }
+        selecionados.forEach(q => q.classList.remove("selected"));
+        selecionados = [];
 
-            if (encontrado) {
-                tabuleiroElement.querySelectorAll(".selected").forEach(q => {
-                    q.classList.add("correct");
-                    q.classList.remove("selected");
-                });
-
-                const palavraElement = palavrasElement.querySelector(`[data-palavra="${palavra}"]`);
-                if (palavraElement) palavraElement.classList.add("correct");
-
-                palavrasEncontradas++;
-            }
-        });
-
-        if (palavrasEncontradas === temas[temaAtual].palavras.length) {
+        if (palavrasEncontradas === tema.palavras.length) {
             messageElement.style.display = "block";
             botaoConcluir.style.display = "block";
         }
+    }
+
+    function removerSelecoesIncorretas() {
+        tabuleiroElement.querySelectorAll(".quadrado.selected").forEach(q => q.classList.remove("selected"));
     }
 
     botaoConcluir.addEventListener("click", () => {
@@ -283,6 +276,5 @@ header {
 
     carregarTema();
 </script>
-
 </body>
 </html>
