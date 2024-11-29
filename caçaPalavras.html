@@ -5,122 +5,121 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jogo de Caça Palavras</title>
     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #353c49;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
 
-        /* Estilos principais */
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #353c49; /* Fundo padrão */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        flex-direction: column;
-    }
-    .container {
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        width: 100%;
-    }
-    .tabuleiro {
-        display: grid;
-        grid-template-columns: repeat(15, 35px); /* Ajustado para caixas menores */
-        grid-template-rows: repeat(15, 35px); /* Ajustado para caixas menores */
-        gap: 2px; /* Reduzi o espaçamento */
-        user-select: none;
-    }
-    .quadrado {
-        width: 20px; /* Reduzido, mantendo espaço para o texto */
-        height: 20px; /* Reduzido */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border: 1px solid transparent; /* Borda transparente */
-        font-size: 20px; /* Mantém o tamanho das letras */
-        font-weight: bold;
-        color: #fff; /* Cor das letras */
-        background-color: transparent; /* Fundo transparente */
-        text-transform: uppercase; /* Letras em maiúsculas */
-        cursor: pointer;
-    }
-    .quadrado.correct {
-        background-color: lightgreen;
-    }
-    .quadrado.selected {
-        background-color: lightblue;
-    }
-    .palavras {
-        margin-left: 100px; /* Aumentado para afastar mais */
-        font-size: 18px;
-        display: flex;
-        flex-direction: column;
-        padding: 10px;
-        border: 2px solid #ccc;
-        background-color: #fff;
-        border-radius: 10px;
-        align-self: center; /* Alinha verticalmente ao centro */
-    }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            position: relative;
+        }
+
+        .palavras {
+            position: absolute;
+            left: 200px; /* Posiciona à esquerda do caça-palavras */
+            top: 50%; /* Centraliza verticalmente */
+            transform: translateY(-50%);
+            font-size: 18px;
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+            border: 2px solid #ccc;
+            background-color: #fff;
+            border-radius: 10px;
+            align-self: center;
+        }
+
+        /* Efeito de riscar a palavra */
     .palavra.correct {
         text-decoration: line-through;
-        color: green;
-    }
-    .message-container {
-        text-align: center;
-        margin-top: 20px;
-    }
-    .message {
-        font-size: 20px;
-        font-weight: bold;
-        color: green;
-        display: none;
-    }
-    .botao-concluir {
-        margin-top: 20px;
-        padding: 10px;
-        background-color: #4CAF50;
-        color: white;
-        border: none;
-        cursor: pointer;
-        font-size: 16px;
-        display: none;
-    }
-    .botao-concluir:hover {
-        background-color: #45a049;
+        color: gray;
     }
 
-    /* Rodapé */
-    footer {
-            background-color: #1f2937; /* Azul escuro */
-            color: #94a3b8; /* Cinza claro */
+
+        .tabuleiro {
+            display: grid;
+            grid-template-columns: repeat(15, 35px);
+            grid-template-rows: repeat(15, 35px);
+            gap: 2px;
+            user-select: none;
+        }
+
+        .quadrado {
+            width: 20px;
+            height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid transparent;
+            font-size: 20px;
+            font-weight: bold;
+            color: #fff;
+            background-color: transparent;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        .quadrado.correct {
+            background-color: lightgreen;
+        }
+
+        .quadrado.selected {
+            background-color: lightblue;
+        }
+
+        .botao-concluir {
+            position: absolute;
+            right: 200px; /* Aproxima o botão do caça-palavras */
+            top: 50%; /* Centraliza verticalmente */
+            transform: translateY(-50%);
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            display: block; /* Sempre visível */
+        }
+
+        .botao-concluir:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            background-color: #1f2937;
+            color: #94a3b8;
             text-align: center;
             padding: 20px 0;
             position: fixed;
             bottom: 0;
             width: 100%;
-            box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.2); /* Sombra para destaque */
-    }
-
+            box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.2);
+        }
     </style>
 </head>
 <body>
+    <div class="container">
+        <div class="palavras" id="palavras"></div>
+        <div class="tabuleiro" id="tabuleiro"></div>
+        <button class="botao-concluir" id="botaoConcluir">Próximo Tema</button>
+    </div>
 
-<br><br><br>
-<div class="container">
-    <div class="palavras" id="palavras"></div>
-    <div class="tabuleiro" id="tabuleiro"></div>
-</div>
+    <footer>
+        <p>&copy; 2024 Cursos do Professor Kellton Rodrigo. Todos os direitos reservados.</p>
+    </footer>
 
-<div class="message" id="message">Parabéns! Você encontrou todas as palavras!</div>
-<button class="botao-concluir" id="botaoConcluir">Próximo Tema</button>
-<br><br><br>
-
-<footer>
-    <p>&copy; 2024 Cursos do Professor Kellton Rodrigo. Todos os direitos reservados.</p>
-</footer> 
-
-<script>
-    const temas = [
+    <script>
+        const temas = [
     { nome: "Tecnologia", palavras: ["JAVASCRIPT", "HTML", "CRUZADAS", "ESTUDO", "WEB", "JOGO", "CSS", "REACT", "NODE", "PYTHON"] },
     { nome: "Animais", palavras: ["GATO", "CACHORRO", "LEÃO", "TIGRE", "ZEBRA", "PATO", "URSO", "COBRA", "TUBARÃO", "PINGUIM"] },
     { nome: "Inglês", palavras: ["HAPPY", "SAD", "HUNGRY", "FUN","SCHOLAR", "LUCKY", "SMART", "BEAUTIFUL", "EDUCATED", "GENEROUS"] },
@@ -145,140 +144,144 @@
 
     ];
 
-    let temaAtual = 0;
-    let palavrasEncontradas = 0;
-    let tabuleiro = [];
-    let selecionando = false;
-    let selecionados = [];
-    let timeoutId;
+        let temaAtual = 0;
+        let palavrasEncontradas = 0;
+        let tabuleiro = [];
+        let selecionando = false;
+        let selecionados = [];
+        let timeoutId;
 
-    const numLinhas = 15, numColunas = 15;
-    const tabuleiroElement = document.getElementById("tabuleiro");
-    const palavrasElement = document.getElementById("palavras");
-    const messageElement = document.getElementById("message");
-    const botaoConcluir = document.getElementById("botaoConcluir");
+        const numLinhas = 15, numColunas = 15;
+        const tabuleiroElement = document.getElementById("tabuleiro");
+        const palavrasElement = document.getElementById("palavras");
+        const botaoConcluir = document.getElementById("botaoConcluir");
 
-    function carregarTema() {
-        const tema = temas[temaAtual];
-        palavrasElement.innerHTML = `<h3>${tema.nome}</h3>` +
-            tema.palavras.map(p => `<div class="palavra" data-palavra="${p}">${p}</div>`).join("");
-        palavrasEncontradas = 0;
-        tabuleiroElement.innerHTML = "";
-        tabuleiro = Array.from({ length: numLinhas }, () => Array(numColunas).fill(""));
-        preencherTabuleiro(tema.palavras);
-    }
+        function carregarTema() {
+            const tema = temas[temaAtual];
+            palavrasElement.innerHTML = `<h3>${tema.nome}</h3>` +
+                tema.palavras.map(p => `<div class="palavra" data-palavra="${p}">${p}</div>`).join("");
+            palavrasEncontradas = 0;
+            tabuleiroElement.innerHTML = "";
+            tabuleiro = Array.from({ length: numLinhas }, () => Array(numColunas).fill(""));
+            preencherTabuleiro(tema.palavras);
+        }
 
-    function preencherTabuleiro(palavras) {
-        palavras.forEach(palavra => {
-            let posicaoValida = false;
-            while (!posicaoValida) {
-                const linha = Math.floor(Math.random() * numLinhas);
-                const coluna = Math.floor(Math.random() * numColunas);
-                const orientacao = ["horizontal", "vertical", "diagonal"][Math.floor(Math.random() * 3)];
-                posicaoValida = verificarPosicao(linha, coluna, palavra, orientacao);
-                if (posicaoValida) adicionarPalavra(linha, coluna, palavra, orientacao);
-            }
-        });
+        function preencherTabuleiro(palavras) {
+            palavras.forEach(palavra => {
+                let posicaoValida = false;
+                while (!posicaoValida) {
+                    const linha = Math.floor(Math.random() * numLinhas);
+                    const coluna = Math.floor(Math.random() * numColunas);
+                    const orientacao = ["horizontal", "vertical", "diagonal"][Math.floor(Math.random() * 3)];
+                    posicaoValida = verificarPosicao(linha, coluna, palavra, orientacao);
+                    if (posicaoValida) adicionarPalavra(linha, coluna, palavra, orientacao);
+                }
+            });
 
-        for (let i = 0; i < numLinhas; i++) {
-            for (let j = 0; j < numColunas; j++) {
-                const letra = tabuleiro[i][j] || String.fromCharCode(65 + Math.random() * 26);
-                const quadrado = document.createElement("div");
-                quadrado.textContent = letra;
-                quadrado.classList.add("quadrado");
-                quadrado.dataset.linha = i;
-                quadrado.dataset.coluna = j;
-                quadrado.addEventListener("mousedown", iniciarSelecao);
-                quadrado.addEventListener("mousemove", selecionar);
-                quadrado.addEventListener("mouseup", finalizarSelecao);
-                tabuleiroElement.appendChild(quadrado);
+            for (let i = 0; i < numLinhas; i++) {
+                for (let j = 0; j < numColunas; j++) {
+                    const letra = tabuleiro[i][j] || String.fromCharCode(65 + Math.random() * 26);
+                    const quadrado = document.createElement("div");
+                    quadrado.textContent = letra;
+                    quadrado.classList.add("quadrado");
+                    quadrado.dataset.linha = i;
+                    quadrado.dataset.coluna = j;
+                    quadrado.addEventListener("mousedown", iniciarSelecao);
+                    quadrado.addEventListener("mousemove", selecionar);
+                    quadrado.addEventListener("mouseup", finalizarSelecao);
+                    tabuleiroElement.appendChild(quadrado);
+                }
             }
         }
-    }
 
-    function verificarPosicao(linha, coluna, palavra, orientacao) {
-        if (orientacao === "horizontal") {
-            if (coluna + palavra.length > numColunas) return false;
+        function verificarPosicao(linha, coluna, palavra, orientacao) {
+            if (orientacao === "horizontal") {
+                if (coluna + palavra.length > numColunas) return false;
+                for (let i = 0; i < palavra.length; i++) {
+                    if (tabuleiro[linha][coluna + i] && tabuleiro[linha][coluna + i] !== palavra[i]) return false;
+                }
+            } else if (orientacao === "vertical") {
+                if (linha + palavra.length > numLinhas) return false;
+                for (let i = 0; i < palavra.length; i++) {
+                    if (tabuleiro[linha + i][coluna] && tabuleiro[linha + i][coluna] !== palavra[i]) return false;
+                }
+            } else if (orientacao === "diagonal") {
+                if (linha + palavra.length > numLinhas || coluna + palavra.length > numColunas) return false;
+                for (let i = 0; i < palavra.length; i++) {
+                    if (tabuleiro[linha + i][coluna + i] && tabuleiro[linha + i][coluna + i] !== palavra[i]) return false;
+                }
+            }
+            return true;
+        }
+
+        function adicionarPalavra(linha, coluna, palavra, orientacao) {
             for (let i = 0; i < palavra.length; i++) {
-                if (tabuleiro[linha][coluna + i] && tabuleiro[linha][coluna + i] !== palavra[i]) return false;
-            }
-        } else if (orientacao === "vertical") {
-            if (linha + palavra.length > numLinhas) return false;
-            for (let i = 0; i < palavra.length; i++) {
-                if (tabuleiro[linha + i][coluna] && tabuleiro[linha + i][coluna] !== palavra[i]) return false;
-            }
-        } else if (orientacao === "diagonal") {
-            if (linha + palavra.length > numLinhas || coluna + palavra.length > numColunas) return false;
-            for (let i = 0; i < palavra.length; i++) {
-                if (tabuleiro[linha + i][coluna + i] && tabuleiro[linha + i][coluna + i] !== palavra[i]) return false;
+                if (orientacao === "horizontal") tabuleiro[linha][coluna + i] = palavra[i];
+                else if (orientacao === "vertical") tabuleiro[linha + i][coluna] = palavra[i];
+                else if (orientacao === "diagonal") tabuleiro[linha + i][coluna + i] = palavra[i];
             }
         }
-        return true;
-    }
 
-    function adicionarPalavra(linha, coluna, palavra, orientacao) {
-        for (let i = 0; i < palavra.length; i++) {
-            if (orientacao === "horizontal") tabuleiro[linha][coluna + i] = palavra[i];
-            else if (orientacao === "vertical") tabuleiro[linha + i][coluna] = palavra[i];
-            else if (orientacao === "diagonal") tabuleiro[linha + i][coluna + i] = palavra[i];
+        function iniciarSelecao(event) {
+            selecionando = true;
+            selecionados = [];
+            clearTimeout(timeoutId);
+            event.target.classList.add("selected");
+            selecionados.push(event.target);
         }
-    }
 
-    function iniciarSelecao(event) {
-        selecionando = true;
-        selecionados = [];
-        clearTimeout(timeoutId);
-        event.target.classList.add("selected");
-        selecionados.push(event.target);
-    }
-
-    function selecionar(event) {
-        if (selecionando) {
-            const quadrado = event.target;
-            if (!selecionados.includes(quadrado)) {
-                quadrado.classList.add("selected");
-                selecionados.push(quadrado);
+        function selecionar(event) {
+            if (selecionando) {
+                const quadrado = event.target;
+                if (!selecionados.includes(quadrado)) {
+                    quadrado.classList.add("selected");
+                    selecionados.push(quadrado);
+                }
             }
         }
-    }
 
-    function finalizarSelecao() {
-        selecionando = false;
-        verificarPalavras();
-        timeoutId = setTimeout(removerSelecoesIncorretas, 8000);
-    }
+        function finalizarSelecao() {
+            selecionando = false;
+            verificarPalavras();
+            timeoutId = setTimeout(removerSelecoesIncorretas, 5000);
+        }
 
-    function verificarPalavras() {
+        function verificarPalavras() {
         const palavraSelecionada = selecionados.map(q => q.textContent).join("");
         const tema = temas[temaAtual];
         if (tema.palavras.includes(palavraSelecionada)) {
             selecionados.forEach(q => q.classList.add("correct"));
+            
+            // Risca a palavra na caixa de dicas
             const palavraElement = palavrasElement.querySelector(`[data-palavra="${palavraSelecionada}"]`);
-            if (palavraElement) palavraElement.classList.add("correct");
+            if (palavraElement) {
+                palavraElement.classList.add("correct");
+            }
+
             palavrasEncontradas++;
         }
         selecionados.forEach(q => q.classList.remove("selected"));
         selecionados = [];
 
         if (palavrasEncontradas === tema.palavras.length) {
-            messageElement.style.display = "block";
-            botaoConcluir.style.display = "block";
+            setTimeout(() => {
+                temaAtual = (temaAtual + 1) % temas.length;
+                carregarTema();
+            }, 5000);
         }
     }
 
-    function removerSelecoesIncorretas() {
-        tabuleiroElement.querySelectorAll(".quadrado.selected").forEach(q => q.classList.remove("selected"));
-    }
 
-    botaoConcluir.addEventListener("click", () => {
-    temaAtual = (temaAtual + 1) % temas.length;
-    carregarTema();
-    
-    // Ocultar a mensagem de "Parabéns!" e o botão de concluir
-    messageElement.style.display = "none";
-    botaoConcluir.style.display = "none";
-});
-    carregarTema();
-</script>
+        function removerSelecoesIncorretas() {
+            tabuleiroElement.querySelectorAll(".quadrado.selected").forEach(q => q.classList.remove("selected"));
+        }
+
+        botaoConcluir.addEventListener("click", () => {
+            temaAtual = (temaAtual + 1) % temas.length;
+            carregarTema();
+        });
+
+        carregarTema();
+    </script>
 </body>
 </html>
